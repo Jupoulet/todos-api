@@ -1,7 +1,7 @@
 import {PropsWithChildren} from "react";
 
 const POSTSting = `{ "name": "Todo's name" }`;
-const PUTString = `{ "id": 1, "name": "Changed name" }`;
+const PUTString = `{ "id": 1, "status": "completed" }`;
 const DeleteString = `{ "id": 1}`;
 const StyledMethod = ({ children, className }: PropsWithChildren<{ className?: string }>) => (
   <span
