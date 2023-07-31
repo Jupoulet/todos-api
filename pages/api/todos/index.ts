@@ -1,6 +1,11 @@
 import * as todos from '../../../lib/todos';
+import type { NextApiRequest, NextApiResponse } from 'next';
+import { type ToDo } from '../../../lib/todos'
 
-export default async function handler(req, res) {
+export default async function handler(
+  req: NextApiRequest,
+  res: NextApiResponse<ToDo[] | string>
+) {
   switch (req.method) {
     case 'GET':
       return res.status(200).json(await todos.list())
