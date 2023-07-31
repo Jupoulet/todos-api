@@ -1,8 +1,9 @@
+import {PropsWithChildren} from "react";
 
 const POSTSting = `{ "name": "Todo's name" }`;
 const PUTString = `{ "id": 1, "name": "Changed name" }`;
 const DeleteString = `{ "id": 1}`;
-const StyledMethod = ({ children, className }) => (
+const StyledMethod = ({ children, className }: PropsWithChildren<{ className?: string }>) => (
   <span
     className={`px-4 py-2 rounded-md font-bold mr-8 ${className}`}
   >
@@ -10,9 +11,9 @@ const StyledMethod = ({ children, className }) => (
   </span>
 );
 
-const StyledEndpoint = ({ children }) => <em className="bg-slate-500 px-4 py-2 rounded-md font-bold">{children}</em>
+const StyledEndpoint = ({ children }: PropsWithChildren) => <em className="bg-slate-500 px-4 py-2 rounded-md font-bold">{children}</em>
 ;
-  const StyledCode = ({ children }) => <code className="bg-orange-100 text-slate-500 py-8 px-2 block rounded-md">{children}</code>
+  const StyledCode = ({ children }: PropsWithChildren) => <code className="bg-orange-100 text-slate-500 py-8 px-2 block rounded-md">{children}</code>
 export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between">
