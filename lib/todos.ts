@@ -8,28 +8,28 @@ export interface ToDo {
 }
 
 export async function list() {
-  return await sql<ToDo[]>`
+  return sql<ToDo[]>`
     SELECT * FROM todos
-  `
+  `;
 }
 
 export async function create(todo: ToDo) {
-  return await sql<ToDo[]>`
+  return sql<ToDo[]>`
     INSERT INTO todos (name) VALUES (${todo.name})
     RETURNING id, name, status, creation_date
-  `
+  `;
 }
 
 export async function update(todo: ToDo) {
-  return await sql<ToDo[]>`
+  return sql<ToDo[]>`
     UPDATE todos SET status=${todo.status} WHERE id=${todo.id}
     RETURNING id, name, status
-  `
+  `;
 }
 
 export async function remove(todo: ToDo) {
-  return await sql<ToDo[]>`
+  return sql<ToDo[]>`
     DELETE FROM todos WHERE id=${todo.id}
     RETURNING id, name, status
-  `
+  `;
 }
