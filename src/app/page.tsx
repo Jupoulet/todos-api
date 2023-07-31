@@ -16,8 +16,8 @@ const StyledEndpoint = ({ children }: PropsWithChildren) => <em className="bg-sl
   const StyledCode = ({ children }: PropsWithChildren) => <code className="bg-orange-100 text-slate-500 py-8 px-2 block rounded-md">{children}</code>
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between">
-      <h1 className="text-xl font-bold">TODOS API</h1>
+    <main className="flex min-h-screen flex-col items-center justify-center">
+      <h1 className="text-xl font-bold mb-16">TODOS API</h1>
       <section>
         <div className="mb-8">
           <h3>
