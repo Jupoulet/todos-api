@@ -1,6 +1,6 @@
 import sql from './db'
 
-export interface ToDo {
+export interface Todo {
   id: number
   name: string
   creation_date: string;
@@ -8,27 +8,27 @@ export interface ToDo {
 }
 
 export async function list() {
-  return sql<ToDo[]>`
+  return sql<Todo[]>`
     SELECT * FROM todos
   `;
 }
 
-export async function create(todo: ToDo) {
-  return sql<ToDo[]>`
+export async function create(todo: Todo) {
+  return sql<Todo[]>`
     INSERT INTO todos (name) VALUES (${todo.name})
     RETURNING id, name, status, creation_date
   `;
 }
 
-export async function update(todo: ToDo) {
-  return sql<ToDo[]>`
+export async function update(todo: Todo) {
+  return sql<Todo[]>`
     UPDATE todos SET status=${todo.status} WHERE id=${todo.id}
     RETURNING id, name, status
   `;
 }
 
-export async function remove(todo: ToDo) {
-  return sql<ToDo[]>`
+export async function remove(todo: Todo) {
+  return sql<Todo[]>`
     DELETE FROM todos WHERE id=${todo.id}
     RETURNING id, name, status
   `;

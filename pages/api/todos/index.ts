@@ -1,10 +1,10 @@
 import * as todos from '../../../lib/todos';
 import type { NextApiRequest, NextApiResponse } from 'next';
-import { type ToDo } from '../../../lib/todos'
+import { type Todo } from '../../../lib/todos'
 
 export default async function handler(
   req: NextApiRequest,
-  res: NextApiResponse<ToDo[] | string>
+  res: NextApiResponse<Todo[] | string>
 ) {
   switch (req.method) {
     case 'GET':
