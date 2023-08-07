@@ -5,6 +5,7 @@ export interface Todo {
   name: string
   creation_date: string;
   status: 'pending' | 'completed' | 'deleted';
+  user_id: number;
 }
 
 export async function list() {
@@ -15,8 +16,8 @@ export async function list() {
 
 export async function create(todo: Todo) {
   return sql<Todo[]>`
-    INSERT INTO todos (name) VALUES (${todo.name})
-    RETURNING id, name, status, creation_date
+    INSERT INTO todos (name, user_id) VALUES (${todo.name}, ${todo.user_id})
+    RETURNING *
   `;
 }
 

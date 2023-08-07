@@ -10,6 +10,10 @@ export default async function handler(
     case 'GET':
       return res.status(200).json(await todos.list())
     case 'POST':
+      const todo = req.body;
+      if (!todo.user_id) {
+        return res.status(400).json('user_id is missing');
+      }
       return res.status(201).json(await todos.create(req.body))
     case 'PUT':
       const updated = await todos.update(req.body)
