@@ -23,7 +23,7 @@ export async function create(todo: Todo) {
 
 export async function update(todo: Todo) {
   return sql<Todo[]>`
-    UPDATE todos SET status=${todo.status} WHERE id=${todo.id}
+    UPDATE todos SET status=${todo.status}, user_id=${todo.user_id} WHERE id=${todo.id}
     RETURNING id, name, status
   `;
 }

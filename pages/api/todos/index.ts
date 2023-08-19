@@ -14,7 +14,7 @@ export default async function handler(
       if (!todo.user_id) {
         return res.status(400).json('user_id is missing');
       }
-      return res.status(201).json(await todos.create(req.body))
+      return res.status(201).json(await todos.create(todo))
     case 'PUT':
       const updated = await todos.update(req.body)
       return res.status(updated.length > 0 ? 200 : 404).json(updated)

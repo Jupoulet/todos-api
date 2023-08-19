@@ -1,8 +1,8 @@
 import {PropsWithChildren} from "react";
 
-const POSTSting = `{ "name": "Todo's name" }`;
-const PUTString = `{ "id": 1, "status": "completed" }`;
-const DeleteString = `{ "id": 1}`;
+const POSTSting = `{ "name": "Todo's name", "user_id": 1 }`;
+const PUTString = `{ "id": 1, "status": "completed", "user_id": 1 }`;
+const DeleteString = `{ "id": 1 }`;
 const POSTStringUser = `{
   "first_name": "John",
   "last_name": "Doe"
